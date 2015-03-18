@@ -2,6 +2,8 @@
   "name": "rainbow-barf",
   "version": "0.1.0",
   "description": "An ANSI formatting utility for nodejs",
+  "author": "Nathan Stilwell",
+  "license": "WTFPL",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
@@ -11,8 +13,9 @@
     "type": "git",
     "url": "git@github.com:nathanstilwell/rainbow-barf.git"
   },
-  "author": "Nathan Stilwell",
-  "license": "WTFPL",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/nathanstilwell/rainbow-barf/issues"

@@ -1,0 +1,7 @@
+.npmignore
+.git*
+test/
+demo.js
+demo.png
+gulpfile.js
+inline.png

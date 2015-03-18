@@ -71,7 +71,7 @@ k:background-color    format text with background-color of specified name. See b
 
 ## Available Colors
 
-![](demo.png)
+![demo output](https://raw.githubusercontent.com/nathanstilwell/rainbow-barf/master/demo.png)
 
 ## Examples
 ```js
@@ -103,7 +103,7 @@ log(' [-biulrn] [-c color] [-k background]');
 
 would log
 
-![](inline.png)
+![inline ouput](https://raw.githubusercontent.com/nathanstilwell/rainbow-barf/master/inline.png)
 
 ## Log somewhere else
 
