@@ -20,7 +20,9 @@ If you ***still*** want to install it,
 ## usage:
 
 ```js
-  var log = requrire('rainbow-barf');
+
+  var RainbowBarf = require('rainbow-barf');
+  var log = new RainbowBarf();
 
   // pass in styles as a second argument
   log('this message is red', '-c:red');
@@ -102,6 +104,24 @@ log(' [-biulrn] [-c color] [-k background]');
 would log
 
 ![](inline.png)
+
+## Log somewhere else
+
+If you have a super cool custom logger and you want to rainbow barf on that, the RainbowBarf constructor can take that as an argument (By default RainbowBarf will output to `process.stdout.write`). Check it:
+
+```js
+var RainbowBarf = require('rainbow-barf');
+
+function anyFunctionThatTakesAStringAsAnArgument (message) {
+  console.log('[so cool]:', message);
+}
+
+var log = new RainbowBarf(anyFunctionThatTakesAStringAsAnArgument);
+
+log('now we\'re logging to console!!', ['c:bright_red', 'l']);
+```
+
+Let's be honest, I just did this so I could write tests for this. Peace!
 
 ## License
 
