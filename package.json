@@ -1,0 +1,26 @@
+{
+  "name": "rainbow-barf",
+  "version": "0.1.0",
+  "description": "An ANSI formatting utility for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nathanstilwell/rainbow-barf.git"
+  },
+  "author": "Nathan Stilwell",
+  "license": "WTFPL",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/nathanstilwell/rainbow-barf/issues"
+  },
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.0.0",
+    "gulp-mocha": "^2.0.0"
+  }
+}
