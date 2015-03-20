@@ -2,6 +2,8 @@
 
 *Make terminal output pretty*
 
+[![Circle CI](https://circleci.com/gh/nathanstilwell/rainbow-barf/tree/master.svg?style=svg)](https://circleci.com/gh/nathanstilwell/rainbow-barf/tree/master)
+
 ## Install
 
 So here's the deal ... the world doesn't need any more *add Ansi codes to strings
