@@ -16,15 +16,6 @@ describe('Process Options', function () {
     expect(processOptions.parse).to.be.a('function');
   });
 
-  it('should parse blank options and return a newline', function () {
-    var opts = processOptions.parse();
-    expect(opts).to.be.a('object');
-    expect(opts.color).to.be.equal('default');
-    expect(opts.background).to.be.equal('default');
-    expect(opts.formatting).to.be.empty;
-    expect(opts.lineBreakOption).to.be.equal('\n');
-  });
-
   describe('Process Options as strings', function () {
     it('should return an object if I give it a string', function () {
       var opts = processOptions.parse('-c:purple -nubirl -k:blue');
@@ -137,17 +128,19 @@ describe('Process Options', function () {
     });
   }); // Process Options as object
 
-  describe('Process Options as garbage', function () {
+  describe('as garbage', function () {
     it('should return null if given an unexpected type', function () {
       var numberOpt = processOptions.parse(3);
       var boolOpt = processOptions.parse(true);
       var undefOpt = processOptions.parse(undefined);
       var infiniteOpt = processOptions.parse(Infinity);
+      var blankOpt = processOptions.parse();
 
       expect(numberOpt).to.be.a('null');
       expect(boolOpt).to.be.a('null');
       expect(undefOpt).to.be.a('null');
       expect(infiniteOpt).to.be.a('null');
+      expect(blankOpt).to.be.a('null');
     });
 
     it('should return null if I give it nothing', function returnNullForNothing () {

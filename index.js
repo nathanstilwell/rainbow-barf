@@ -17,6 +17,10 @@ function RainbowBarf (writeOverride) {
 
   return function RainbowBarf_log (message, options) {
 
+    if (message === undefined && options === undefined) {
+      return self.writer('\n');
+    }
+
     var opts = processOptions.parse(options);
     var msg = formatMessage.decorate(message, opts);
 

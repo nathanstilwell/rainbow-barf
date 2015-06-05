@@ -1,6 +1,6 @@
 {
   "name": "rainbow-barf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An ANSI formatting utility for nodejs",
   "author": "Nathan Stilwell",
   "license": "WTFPL",
