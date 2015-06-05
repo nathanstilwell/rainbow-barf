@@ -18,9 +18,16 @@ describe('Rainbow Barf', function rainbowBarfTests () {
     expect(log).to.be.a('function');
   });
 
-  it('should use the custom writer', function customWriterTest () {
-    var result = log('test');
-    expect(result).to.equal('test');
+  describe('Rainbow Barf should fall back to defaults', function rainbowBarfUsesDefaults () {
+    it('should use default options if no options are provided', function useDefaultOptionsIfIgiveYouNothing () {
+      var result = log('test');
+      expect(result).to.equal('test\n');
+    });
+
+    it('should give me a blank line, if no parameters are given', function blankLineForNothing () {
+      var result = log();
+      expect(result).to.equal('\n');
+    });
   });
 
   describe('Rainbow Barf should format output with text colors', function formatWithTextColorTests () {

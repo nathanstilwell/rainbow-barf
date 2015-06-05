@@ -16,6 +16,15 @@ describe('Process Options', function () {
     expect(processOptions.parse).to.be.a('function');
   });
 
+  it('should parse blank options and return a newline', function () {
+    var opts = processOptions.parse();
+    expect(opts).to.be.a('object');
+    expect(opts.color).to.be.equal('default');
+    expect(opts.background).to.be.equal('default');
+    expect(opts.formatting).to.be.empty;
+    expect(opts.lineBreakOption).to.be.equal('\n');
+  });
+
   describe('Process Options as strings', function () {
     it('should return an object if I give it a string', function () {
       var opts = processOptions.parse('-c:purple -nubirl -k:blue');
