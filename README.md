@@ -2,7 +2,8 @@
 
 *Make terminal output pretty*
 
-[![Circle CI](https://circleci.com/gh/nathanstilwell/rainbow-barf/tree/master.svg?style=svg)](https://circleci.com/gh/nathanstilwell/rainbow-barf/tree/master)
+[![Circle CI](https://circleci.com/gh/nathanstilwell/rainbow-barf.svg?style=shield)](https://circleci.com/gh/nathanstilwell/rainbow-barf/tree/master) [![npm](https://img.shields.io/npm/v/rainbow-barf.svg?style=plastic)](https://www.npmjs.com/package/rainbow-barf) [![David](https://img.shields.io/david/dev/nathanstilwell/rainbow-barf.svg?style=plastic)](https://david-dm.org/nathanstilwell/rainbow-barf#info=devDependencies&view=table)
+
 
 ## Install
 
