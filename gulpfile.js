@@ -1,18 +1,22 @@
-/*jshint eqnull: true, browser: true */
-/*global require: false*/
+/*jshint esnext: true, laxcomma: true, eqeqeq: true, bitwise: true, curly: true, latedef: true, strict: true, plusplus: true*/
+/*global require: true*/
 
 'use strict';
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
+//
+//  require-dir is a module that will look at a directory and call require()
+//  on every file in that directory (and all of its subdirectories if recursive
+//  is true). So in this gulpfile we are loading ever file in the gulp/task
+//  directory. Each of those files contain an individual task. And so to add
+//  more tasks just create a file in that folder
+//
+require('require-dir')('./gulp/tasks', { recurse: true });
+/*global require*/
 
-
-gulp.task('watch', function watchTask () {
-  gulp.watch(['test/**/*.js'], ['test']);
-});
-
-gulp.task('test', function () {
-  return gulp.src('test/*.js', {read: false})
-         .pipe(mocha({reporter: 'nyan'}));
-});
-
-gulp.task('default', ['test', 'watch']);
+//
+//  require-dir is a module that will look at a directory and call require()
+//  on every file in that directory (and all of its subdirectories if recursive
+//  is true). So in this gulpfile we are loading ever file in the gulp/task
+//  directory. Each of those files contain an individual task. And so to add
+//  more tasks just create a file in that folder
+//
+require('require-dir')('./gulp/tasks', { recurse: true });
