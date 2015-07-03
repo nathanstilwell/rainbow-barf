@@ -6,7 +6,7 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=ci; gulp test",
+    "test": "gulp test",
     "dev": "gulp"
   },
   "repository": {
