@@ -6,7 +6,7 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test; gulp test",
+    "test": "export NODE_ENV=ci; gulp test",
     "dev": "gulp"
   },
   "repository": {
@@ -23,8 +23,10 @@
   "devDependencies": {
     "chai": "^3.0.0",
     "gulp": "^3.8.11",
+    "gulp-coveralls": "^0.1.4",
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.0.0",
+    "gulp-util": "^3.0.6",
     "require-dir": "^0.3.0"
   }
 }
