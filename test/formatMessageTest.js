@@ -19,7 +19,7 @@ describe('Format Message', function formatMessageTests () {
     var escapePost = 'm';
     var reset = escapePre + '0' + escapePost;
 
-    it('should have a decorate function', function haveADecorateFunctionTest () {
+    it('should be a function', function haveADecorateFunctionTest () {
       expect(formatMessage.decorate).to.be.a('function');
     });
 
@@ -49,6 +49,36 @@ describe('Format Message', function formatMessageTests () {
       expect(result).to.be.equal(expectedColor + expectedBackgroundColor + message + reset + '\n');
     });
 
+    it('should format a message with missing options', function formatWithMissingOptions () {
+      var message = 'test';
+      var expectedColor = '\u001b[33m';
+      var expectedBackground = '\u001b[45m';
+      var expectedFormatting = '\u001b[1m';
+      var testLinebreak = 'bonk';
+      var resultOnlyColor;
+      var resultOnlyBackground;
+      var resultOnlyFormatting;
+      var resultOnlyLineBreak;
+
+      resultOnlyColor = formatMessage.decorate(message, {
+        color: 'yellow'
+      });
+      resultOnlyBackground = formatMessage.decorate(message, {
+        background: 'purple'
+      });
+      resultOnlyFormatting = formatMessage.decorate(message, {
+        formatting: ['bold']
+      });
+      resultOnlyLineBreak = formatMessage.decorate(message, {
+        lineBreakOption: testLinebreak
+      });
+
+      expect(resultOnlyColor).to.be.equal(expectedColor + message + reset + '\n');
+      expect(resultOnlyBackground).to.be.equal(expectedBackground + message + reset + '\n');
+      expect(resultOnlyFormatting).to.be.equal(expectedFormatting + message + reset + '\n');
+      expect(resultOnlyLineBreak).to.be.equal(message + reset + testLinebreak);
+    });
+
     it('should format a message with various options', function formatWithVariousOptionsTest () {
       var color = '\u001b[33m';
       var background = '\u001b[45m';
@@ -72,5 +102,7 @@ describe('Format Message', function formatMessageTests () {
 
       expect(result).to.be.equal(expectedResult);
     });
+
+
   }); // decorate function
 }); // Format Message

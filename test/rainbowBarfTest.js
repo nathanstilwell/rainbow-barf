@@ -1,5 +1,5 @@
 /*jshint eqnull: true */
-/*global require: false, describe: false, it: false */
+/*global require, describe, it, process */
 
 'use strict';
 
@@ -11,11 +11,49 @@ var customWriter = function customWriter (message) {
   return message;
 };
 
+function captureStream (stream) {
+  var oldWrite = stream.write;
+  var buf = '';
+  stream.write = function (chunk) {
+    buf += chunk.toString(); // chunk is a String or Buffer
+    oldWrite.apply(stream, arguments);
+  };
+
+  function unhook(){
+   stream.write = oldWrite;
+  }
+
+  function captured () {
+    return buf;
+  }
+
+  return {
+    unhook: unhook,
+    captured: captured
+  };
+}
+
+
 describe('Rainbow Barf', function rainbowBarfTests () {
   var log = new RainbowBarf(customWriter);
 
   it('should be a function', function rainbowBarfLogIsAFunctionTest () {
     expect(log).to.be.a('function');
+  });
+
+  describe('writes to stdout by default', function () {
+
+    it('prints the argument', function(){
+      var hook;
+      var standardOutBarf = new RainbowBarf();
+
+      hook = captureStream(process.stdout);
+      standardOutBarf('test');
+
+      expect(hook.captured()).to.equal('test\n');
+
+      hook.unhook();
+    });
   });
 
   describe('Rainbow Barf should fall back to defaults', function rainbowBarfUsesDefaults () {
