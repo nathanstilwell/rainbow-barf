@@ -13,7 +13,7 @@ if ('development' === env) {
   reporter = 'nyan';
 }
 
-if ('ci' === env) {
+if ('ci' === env || 'test' === env) {
   reporter = 'list';
 }
 

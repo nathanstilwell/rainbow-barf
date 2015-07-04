@@ -7,7 +7,9 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "dev": "gulp"
+    "spec": "export NODE_ENV=test; gulp test",
+    "dev": "gulp",
+    "see-coverage": "gulp test && open ./test/coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
