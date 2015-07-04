@@ -7,13 +7,13 @@ var chai = require('chai');
 var expect = chai.expect;
 var escape = require('../lib/escapeCodes');
 
-describe('Escape Codes', function () {
+describe('EscapeCodes', function () {
 
-  it('should return an escape codes object', function escapeCodesObjectTest () {
+  it('should return an object', function escapeCodesObjectTest () {
     expect(escape).to.be.a('object');
   });
 
-  describe('have a text function', function () {
+  describe('has a text function,', function () {
     it('should be a function', function textShouldBeAFunction () {
       expect(escape.text).to.be.a('function');
     });
@@ -79,7 +79,7 @@ describe('Escape Codes', function () {
     });
   });  // text function
 
-  describe('have a background function', function () {
+  describe('has a background function,', function () {
     it('should be a function', function () {
       expect(escape.background).to.be.a('function');
     });
@@ -149,7 +149,7 @@ describe('Escape Codes', function () {
     });
   }); // background
 
-  describe('have a format function', function () {
+  describe('has a format function,', function () {
     it('should be a function', function () {
       expect(escape.format).to.be.a('function');
     });
@@ -175,7 +175,7 @@ describe('Escape Codes', function () {
     });
   }); // format
 
-  describe('have a reset format function', function () {
+  describe('has a reset format function,', function () {
     it('should be a function', function () {
       expect(escape.reset).to.be.a('function');
     });

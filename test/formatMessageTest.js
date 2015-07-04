@@ -7,13 +7,13 @@ var chai = require('chai');
 var expect = chai.expect;
 var formatMessage = require('../lib/formatMessage');
 
-describe('Format Message', function formatMessageTests () {
+describe('FormatMessage', function formatMessageTests () {
 
   it('should be an object', function shouldBeAnObjectTest () {
     expect(formatMessage).to.be.a('object');
   });
 
-  describe('decorate function', function decorateFunctionsTest () {
+  describe('has a decorate function,', function decorateFunctionsTest () {
 
     var escapePre = '\u001b[';
     var escapePost = 'm';

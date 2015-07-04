@@ -41,22 +41,20 @@ describe('Rainbow Barf', function rainbowBarfTests () {
     expect(log).to.be.a('function');
   });
 
-  describe('writes to stdout by default', function () {
+  describe('writes to stdout by default,', function () {
 
-    it('prints the argument', function(){
-      var hook;
+    it('should print test', function(){
+      var hook = captureStream(process.stdout);
       var standardOutBarf = new RainbowBarf();
 
-      hook = captureStream(process.stdout);
       standardOutBarf('test');
-
       expect(hook.captured()).to.equal('test\n');
 
       hook.unhook();
     });
   });
 
-  describe('Rainbow Barf should fall back to defaults', function rainbowBarfUsesDefaults () {
+  describe('uses defaults,', function rainbowBarfUsesDefaults () {
     it('should use default options if no options are provided', function useDefaultOptionsIfIgiveYouNothing () {
       var result = log('test');
       expect(result).to.equal('test\n');
@@ -68,7 +66,7 @@ describe('Rainbow Barf', function rainbowBarfTests () {
     });
   });
 
-  describe('Rainbow Barf should format output with text colors', function formatWithTextColorTests () {
+  describe('formats output with text colors,', function formatWithTextColorTests () {
     it('should make text red', function makeTextRedTest () {
       var result = log('test', '-c:red');
       expect(result).to.equal('\u001b[31m\u001b[49mtest\u001b[0m\n');
@@ -145,89 +143,89 @@ describe('Rainbow Barf', function rainbowBarfTests () {
     });
   });
 
-  describe('Rainbow Barf should format output with background colors', function formatWithBackgroundColorTests () {
-    it('should make text black', function makeBackgroundBlackTest () {
+  describe('formats output with background colors,', function formatWithBackgroundColorTests () {
+    it('should make background black', function makeBackgroundBlackTest () {
       var result = log('test', '-k:black');
       expect(result).to.equal('\u001b[39m\u001b[40mtest\u001b[0m\n');
     });
 
-    it('should make text red', function makeBackgroundRedTest () {
+    it('should make background red', function makeBackgroundRedTest () {
       var result = log('test', '-k:red');
       expect(result).to.equal('\u001b[39m\u001b[41mtest\u001b[0m\n');
     });
 
-    it('should make text green', function makeBackgroundGreenTest () {
+    it('should make background green', function makeBackgroundGreenTest () {
       var result = log('test', '-k:green');
       expect(result).to.equal('\u001b[39m\u001b[42mtest\u001b[0m\n');
     });
 
-    it('should make text yellow', function makeBackgroundYellowTest () {
+    it('should make background yellow', function makeBackgroundYellowTest () {
       var result = log('test', '-k:yellow');
       expect(result).to.equal('\u001b[39m\u001b[43mtest\u001b[0m\n');
     });
 
-    it('should make text blue', function makeBackgroundBlueTest () {
+    it('should make background blue', function makeBackgroundBlueTest () {
       var result = log('test', '-k:blue');
       expect(result).to.equal('\u001b[39m\u001b[44mtest\u001b[0m\n');
     });
 
-    it('should make text purple', function makeBackgroundPurpleTest () {
+    it('should make background purple', function makeBackgroundPurpleTest () {
       var result = log('test', '-k:purple');
       expect(result).to.equal('\u001b[39m\u001b[45mtest\u001b[0m\n');
     });
 
-    it('should make text cyan', function makeBackgroundCyanTest () {
+    it('should make background cyan', function makeBackgroundCyanTest () {
       var result = log('test', '-k:cyan');
       expect(result).to.equal('\u001b[39m\u001b[46mtest\u001b[0m\n');
     });
 
-    it('should make text white', function makeBackgroundWhiteTest () {
+    it('should make background white', function makeBackgroundWhiteTest () {
       var result = log('test', '-k:white');
       expect(result).to.equal('\u001b[39m\u001b[47mtest\u001b[0m\n');
     });
 
-    it('should make text bright_black', function makeBackgroundBrightBlackTest () {
+    it('should make background bright_black', function makeBackgroundBrightBlackTest () {
       var result = log('test', '-k:bright_black');
       expect(result).to.equal('\u001b[39m\u001b[100mtest\u001b[0m\n');
     });
 
-    it('should make text bright_red', function makeBackgroundBrightRedTest () {
+    it('should make background bright_red', function makeBackgroundBrightRedTest () {
       var result = log('test', '-k:bright_red');
       expect(result).to.equal('\u001b[39m\u001b[101mtest\u001b[0m\n');
     });
 
-    it('should make text bright_green', function makeBackgroundBrightGreenTest () {
+    it('should make background bright_green', function makeBackgroundBrightGreenTest () {
       var result = log('test', '-k:bright_green');
       expect(result).to.equal('\u001b[39m\u001b[102mtest\u001b[0m\n');
     });
 
-    it('should make text bright_yellow', function makeBackgroundBrightYellowTest () {
+    it('should make background bright_yellow', function makeBackgroundBrightYellowTest () {
       var result = log('test', '-k:bright_yellow');
       expect(result).to.equal('\u001b[39m\u001b[103mtest\u001b[0m\n');
     });
 
-    it('should make text bright_blue', function makeBackgroundBrightBlueTest () {
+    it('should make background bright_blue', function makeBackgroundBrightBlueTest () {
       var result = log('test', '-k:bright_blue');
       expect(result).to.equal('\u001b[39m\u001b[104mtest\u001b[0m\n');
     });
 
-    it('should make text bright_purple', function makeBackgroundBrightPurpleTest () {
+    it('should make background bright_purple', function makeBackgroundBrightPurpleTest () {
       var result = log('test', '-k:bright_purple');
       expect(result).to.equal('\u001b[39m\u001b[105mtest\u001b[0m\n');
     });
 
-    it('should make text bright_cyan', function makeBackgroundBrightCyanTest () {
+    it('should make background bright_cyan', function makeBackgroundBrightCyanTest () {
       var result = log('test', '-k:bright_cyan');
       expect(result).to.equal('\u001b[39m\u001b[106mtest\u001b[0m\n');
     });
 
-    it('should make text bright_white', function makeBackgroundBrightWhiteTest () {
+    it('should make background bright_white', function makeBackgroundBrightWhiteTest () {
       var result = log('test', '-k:bright_white');
       expect(result).to.equal('\u001b[39m\u001b[107mtest\u001b[0m\n');
     });
   }); // background
 
-  describe('Rainbow Barf should format with emphasis', function formatTextWithEmphasisTests () {
+  describe('formats with emphasis,', function formatTextWithEmphasisTests () {
     it('should make text bold', function makeBoldTest () {
       var result = log('test', '-b');
       expect(result).to.equal('\u001b[39m\u001b[49m\u001b[1mtest\u001b[0m\n');
@@ -255,8 +253,8 @@ describe('Rainbow Barf', function rainbowBarfTests () {
   }); // emphasis
 
 
-  describe('Rainbow Barf should format output in line', function formatTextInLineTests () {
-    it('should make text red', function makeTextRedTest () {
+  describe('formats output in line,', function formatTextInLineTests () {
+    it('should make text red without a newline', function makeTextRedTest () {
       var result = '';
       result += log('red', '-c:red -n');
       result += log(' blue', ['c:blue', '-n']);
