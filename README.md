@@ -85,7 +85,7 @@ log('message');
 log('message', ['b']);
 
 // log a message in red
-log('message', ['c:red]);
+log('message', ['c:red']);
 
 // log a message in blue with a white background
 log('message', ['c:blue', 'k:white']);
