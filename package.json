@@ -23,7 +23,7 @@
     "url": "https://github.com/nathanstilwell/rainbow-barf/issues"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
+    "chai": "^3.2.0",
     "gulp": "^3.8.11",
     "gulp-coveralls": "^0.1.4",
     "gulp-istanbul": "^0.10.0",
