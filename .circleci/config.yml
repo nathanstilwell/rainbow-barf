@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/barf
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+        name: test
+        command: npm test
