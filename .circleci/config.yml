@@ -7,5 +7,5 @@ jobs:
     steps:
       - checkout
       - run:
-        name: test
-        command: npm test
+          name: test
+          command: npm test
