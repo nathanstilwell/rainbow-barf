@@ -3,97 +3,95 @@
 
 'use strict';
 
-var chai = require('chai');
-var expect = chai.expect;
 var processOptions = require('../lib/processOptions');
 
 describe('ProcessOptions', function () {
   it('should be an object', function () {
-    expect(processOptions).to.be.a('object');
+    expect(typeof processOptions).toEqual('object');
   });
 
   describe('has a parse function,', function () {
     it('should be a function', function () {
-      expect(processOptions.parse).to.be.a('function');
+      expect(typeof processOptions.parse).toEqual('function');
     });
 
     describe('it will process options as strings,', function () {
       it('should return an object if I give it a string', function () {
         var opts = processOptions.parse('-c:purple -nubirl -k:blue');
-        expect(opts).to.be.a('object');
+        expect(typeof opts).toEqual('object');
       });
 
       it('should process a color', function () {
         var opts = processOptions.parse('-c:red');
-        expect(opts.color).to.be.equal('red');
+        expect(opts.color).toEqual('red');
       });
 
       it('should process a background color', function () {
         var opts = processOptions.parse('-k:red');
-        expect(opts.background).to.be.equal('red');
+        expect(opts.background).toEqual('red');
       });
 
       it('should process formatting', function () {
         var opts = processOptions.parse('-ubirl');
         var formatting = ['underline', 'bold', 'italics', 'reverse', 'blink'];
-        expect(opts.formatting).to.include.members(formatting);
+        expect(opts.formatting).toEqual(formatting);
       });
 
       it('should process a line break option', function () {
         var opts = processOptions.parse('-n');
-        expect(opts.lineBreakOption).to.be.equal('');
+        expect(opts.lineBreakOption).toEqual('');
       });
 
       it('should process mixed options', function () {
         var opts = processOptions.parse('-c:red -nubirl -k:blue');
         var formatting = ['underline', 'bold', 'italics', 'reverse', 'blink'];
-        expect(opts.color).to.be.equal('red');
-        expect(opts.background).to.be.equal('blue');
-        expect(opts.formatting).to.include.members(formatting);
-        expect(opts.lineBreakOption).to.be.equal('');
+        expect(opts.color).toEqual('red');
+        expect(opts.background).toEqual('blue');
+        expect(opts.formatting).toEqual(formatting);
+        expect(opts.lineBreakOption).toEqual('');
       });
     }); // Process Options as string
 
     describe('it will process options as an array', function () {
       it('should return an object if I give it an array', function () {
         var opts = processOptions.parse(['c:red', 'b', 'i']);
-        expect(opts).to.be.a('object');
+        expect(typeof opts).toEqual('object');
       });
 
       it('should process a color', function () {
         var opts = processOptions.parse(['c:red']);
-        expect(opts.color).to.be.equal('red');
+        expect(opts.color).toEqual('red');
       });
 
       it('should process a background color', function () {
         var opts = processOptions.parse(['k:red']);
-        expect(opts.background).to.be.equal('red');
+        expect(opts.background).toEqual('red');
       });
 
       it('should process formatting as a group', function () {
         var opts = processOptions.parse(['ubirl']);
         var formatting = ['underline', 'bold', 'italics', 'reverse', 'blink'];
-        expect(opts.formatting).to.include.members(formatting);
+        expect(opts.formatting).toEqual(formatting);
       });
 
       it('should process formatting as individual elements', function () {
         var opts = processOptions.parse(['u', 'b', 'i', 'r', 'l']);
         var formatting = ['underline', 'bold', 'italics', 'reverse', 'blink'];
-        expect(opts.formatting).to.include.members(formatting);
+        expect(opts.formatting).toEqual(formatting);
       });
 
       it('should process line break option', function () {
         var opts = processOptions.parse('n');
-        expect(opts.lineBreakOption).to.be.equal('');
+        expect(opts.lineBreakOption).toEqual('');
       });
 
       it('should process mixed options', function () {
         var opts = processOptions.parse(['c:red', 'nubirl', 'k:blue']);
         var formatting = ['underline', 'bold', 'italics', 'reverse', 'blink'];
-        expect(opts.color).to.be.equal('red');
-        expect(opts.background).to.be.equal('blue');
-        expect(opts.formatting).to.include.members(formatting);
-        expect(opts.lineBreakOption).to.be.equal('');
+        expect(opts.color).toEqual('red');
+        expect(opts.background).toEqual('blue');
+        expect(opts.formatting).toEqual(formatting);
+        expect(opts.lineBreakOption).toEqual('');
       });
     }); // Process Options as array
 
@@ -104,7 +102,7 @@ describe('ProcessOptions', function () {
           background: 'purple',
           bold: true
         });
-        expect(opts).to.be.a('object');
+        expect(typeof opts).toEqual('object');
       });
 
       it('should not alter the given object', function shouldNotAlterObject () {
@@ -114,18 +112,18 @@ describe('ProcessOptions', function () {
           background: 'purple',
           formatting: formatting
         });
-        expect(opts.color).to.be.equal('red');
-        expect(opts.background).to.be.equal('purple');
-        expect(opts.formatting).to.include.members(formatting);
-        expect(opts.lineBreakOption).to.be.equal('\n');
+        expect(opts.color).toEqual('red');
+        expect(opts.background).toEqual('purple');
+        expect(opts.formatting).toEqual(formatting);
+        expect(opts.lineBreakOption).toEqual('\n');
       });
 
       it('should provide defaults', function returnDefaults () {
         var opts = processOptions.parse({});
-        expect(opts.color).to.be.equal('default');
-        expect(opts.background).to.be.equal('default');
-        expect(opts.formatting).to.be.empty;
-        expect(opts.lineBreakOption).to.be.equal('\n');
+        expect(opts.color).toEqual('default');
+        expect(opts.background).toEqual('default');
+        expect(opts.formatting).toEqual([]);
+        expect(opts.lineBreakOption).toEqual('\n');
       });
     }); // Process Options as object
 
@@ -137,17 +135,17 @@ describe('ProcessOptions', function () {
         var infiniteOpt = processOptions.parse(Infinity);
         var blankOpt = processOptions.parse();
 
-        expect(numberOpt).to.be.a('null');
-        expect(boolOpt).to.be.a('null');
-        expect(undefOpt).to.be.a('null');
-        expect(infiniteOpt).to.be.a('null');
-        expect(blankOpt).to.be.a('null');
+        expect(numberOpt).toEqual(null);
+        expect(boolOpt).toEqual(null);
+        expect(undefOpt).toEqual(null);
+        expect(infiniteOpt).toEqual(null);
+        expect(blankOpt).toEqual(null);
       });
 
       it('should return null if I give it nothing', function returnNullForNothing () {
         var options;
         var opts = processOptions.parse(options);
-        expect(opts).to.be.a('null');
+        expect(opts).toEqual(null);
       });
     }); // Process Options as garbage
   }); // parse function
