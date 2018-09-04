@@ -6,10 +6,11 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test",
-    "spec": "export NODE_ENV=test; gulp test",
-    "dev": "gulp",
-    "see-coverage": "gulp test && open ./test/coverage/lcov-report/index.html"
+    "ci": "coveralls",
+    "coverage": "jest --coverage",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test": "jest",
+    "watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -23,12 +24,7 @@
     "url": "https://github.com/nathanstilwell/rainbow-barf/issues"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "gulp": "^3.8.11",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-istanbul": "^0.10.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-util": "^3.0.6",
-    "require-dir": "^0.3.0"
+    "coveralls": "3.0.2",
+    "jest": "23.5.0"
   }
 }
