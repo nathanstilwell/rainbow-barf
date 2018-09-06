@@ -3,14 +3,12 @@
 
 'use strict';
 
-var chai = require('chai');
-var expect = chai.expect;
 var formatMessage = require('../lib/formatMessage');
 
 describe('FormatMessage', function formatMessageTests () {
 
   it('should be an object', function shouldBeAnObjectTest () {
-    expect(formatMessage).to.be.a('object');
+    expect(typeof formatMessage).toEqual('object');
   });
 
   describe('has a decorate function,', function decorateFunctionsTest () {
@@ -20,7 +18,7 @@ describe('FormatMessage', function formatMessageTests () {
     var reset = escapePre + '0' + escapePost;
 
     it('should be a function', function haveADecorateFunctionTest () {
-      expect(formatMessage.decorate).to.be.a('function');
+      expect(typeof formatMessage.decorate).toEqual('function');
     });
 
     it('should return a string', function returnAStringTest () {
@@ -31,7 +29,7 @@ describe('FormatMessage', function formatMessageTests () {
         formatting: [],
         lineBreakOption: '\n'
       };
-      expect(formatMessage.decorate(message, defaultOptions)).to.be.a('string');
+      expect(typeof formatMessage.decorate(message, defaultOptions)).toEqual('string');
     });
 
     it('should format a message with default options', function formatWithDefaultOptionsTest () {
@@ -46,7 +44,7 @@ describe('FormatMessage', function formatMessageTests () {
       var expectedColor = escapePre + '39' + escapePost;
       var expectedBackgroundColor = escapePre + '49' + escapePost;
 
-      expect(result).to.be.equal(expectedColor + expectedBackgroundColor + message + reset + '\n');
+      expect(result).toEqual(expectedColor + expectedBackgroundColor + message + reset + '\n');
     });
 
     it('should format a message with missing options', function formatWithMissingOptions () {
@@ -73,10 +71,10 @@ describe('FormatMessage', function formatMessageTests () {
         lineBreakOption: testLinebreak
       });
 
-      expect(resultOnlyColor).to.be.equal(expectedColor + message + reset + '\n');
-      expect(resultOnlyBackground).to.be.equal(expectedBackground + message + reset + '\n');
-      expect(resultOnlyFormatting).to.be.equal(expectedFormatting + message + reset + '\n');
-      expect(resultOnlyLineBreak).to.be.equal(message + reset + testLinebreak);
+      expect(resultOnlyColor).toEqual(expectedColor + message + reset + '\n');
+      expect(resultOnlyBackground).toEqual(expectedBackground + message + reset + '\n');
+      expect(resultOnlyFormatting).toEqual(expectedFormatting + message + reset + '\n');
+      expect(resultOnlyLineBreak).toEqual(message + reset + testLinebreak);
     });
 
     it('should format a message with various options', function formatWithVariousOptionsTest () {
@@ -100,7 +98,7 @@ describe('FormatMessage', function formatMessageTests () {
       var result = formatMessage.decorate(message, options);
       var expectedResult = color + background + underline + bold + italics + reverse + blink + message + reset + '';
 
-      expect(result).to.be.equal(expectedResult);
+      expect(result).toEqual(expectedResult);
     });
 
 
