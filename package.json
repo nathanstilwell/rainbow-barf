@@ -22,7 +22,7 @@
     "url": "https://github.com/nathanstilwell/rainbow-barf/issues"
   },
   "devDependencies": {
-    "coveralls": "3.0.2",
-    "jest": "23.6.0"
+    "coveralls": "^3.0.4",
+    "jest": "^24.8.0"
   }
 }

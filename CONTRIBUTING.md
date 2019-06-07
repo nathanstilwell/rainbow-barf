@@ -1,30 +1,35 @@
 # Thanks for helping with Rainbow Barf!
 
-I'm using [Node + npm](https://nodejs.org/) and [Gulp](http://gulpjs.com/) when I'm developing. You will want to set these things up to get the tests to run.
 
-## Get Setup
-
-After forking and cloning, head over to [nodejs.org](https://nodejs.org/) and get Node installed (in comes with npm build in). Since we're using [Gulp](http://gulpjs.com/) to run our tests, you will need to have it installed globally. You can do that by running
-
-```shell
-  npm install -g gulp
+```
+npm install
 ```
 
-Once you have gulp, install all the dev dependencies by running
+## The Setup
+
+I'm using [Node + npm](https://nodejs.org/) and [Jest](https://jestjs.io/) for testing. After forking and cloning, head over to [nodejs.org](https://nodejs.org/) and get Node installed (in comes with npm build in). Then simply run
 
 ```shell
   npm install
 ```
 
-## Run the Tests
-
-To run tests run
+To run tests run once,
 
 ```text
-> gulp test
+> npm test
 ```
 
-The test setup is [Mocha](http://mochajs.org/) with [Chai](http://chaijs.com/) expect and [Istanbul](https://gotwarlost.github.io/istanbul/) for test coverage. For developer happiness, the [nyan](https://www.youtube.com/watch?v=QH2-TGUlwu4) reporter is used for `gulp test` and the reporter is used for `npm test` (for CircleCI).
+To watch file changes and run tests,
+
+```text
+> npm run watch
+```
+
+To generate a coverage report,
+
+```text
+> npm run coverage
+```
 
 ## Committing
 
